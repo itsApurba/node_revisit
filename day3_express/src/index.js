@@ -9,21 +9,12 @@ app.use(express.json());
 // console.log('data: ', data);
 
 const prodController = require('./controller/product.controller');
-app.use('/product', prodController)
+app.use('/product', prodController);
 
+app.get('/', (req, res) => {
+  res.send('hello from home route');
+});
 
-
-
-
-app.get('/', (req, res)=>{
-     res.send(data)
-})
-
-
-
-
-
-app.listen(8080, ()=>{
-     console.log('express server started on port 8080');
-})
-
+app.listen(8080, () => {
+  console.log('express server started on port 8080');
+});

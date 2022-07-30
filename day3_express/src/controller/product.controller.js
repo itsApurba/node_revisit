@@ -28,32 +28,49 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let { id } = req.params;
-  let prodid = parseInt(id);
-  let prod = data.find((p) => p.id === prodid);
+  let prod = data.find((p) => p.id === parseInt(id));
   res.send(prod);
 });
 
 router.post('/', (req, res) => {
   console.log(req.body);
   data.push(req.body);
-  fs.writeFile(`${__dirname}/product.json`, JSON.stringify(data),  (err) => {
+  fs.writeFile(`${__dirname}/product.json`, JSON.stringify(data), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
   res.send(data);
 });
 
-router.delete('/:id', (req, res) => {
-  let { id } = req.params;
-  
-  let remainingProd = data.filter((p) => p.id != parseInt(id));
-  
-  fs.writeFile(`${__dirname}/product.json`, JSON.stringify(remainingProd),  (err) => {
+
+router.post('/', (req, res) => {
+  console.log(req.body);
+  data.push(req.body);
+  fs.writeFile(`${__dirname}/product.json`, JSON.stringify(data), (err) => {
     if (err) throw err;
-    console.log('The file has been deleted!');
+    console.log('The file has been saved!');
   });
-  res.status(202).send(remainingProd);
+  res.send(data);
 });
 
+
+
+
+
+router.delete('/:id', (req, res) => {
+  let { id } = req.params;
+
+  let remainingProd = data.filter((p) => p.id != parseInt(id));
+
+  fs.writeFile(
+    `${__dirname}/product.json`,
+    JSON.stringify(remainingProd),
+    (err) => {
+      if (err) throw err;
+      console.log('The file has been deleted!');
+    }
+  );
+  res.status(202).send(remainingProd);
+});
 
 module.exports = router;
