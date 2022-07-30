@@ -43,16 +43,42 @@ router.post('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
-  console.log(req.body);
-  data.push(req.body);
+router.put('/:id', (req, res) => {
+  let { id } = req.params;
+  let prod = data.find((p) => p.id === parseInt(id));
+  if(!prod){
+    res.send('product not exists')
+  }
+  for(let k in req.body){
+    prod[k] = req.body[k];
+  }
+
   fs.writeFile(`${__dirname}/product.json`, JSON.stringify(data), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
+
   res.send(data);
 });
 
+
+router.patch('/:id', (req, res) => {
+  let { id } = req.params;
+  let prod = data.find((p) => p.id === parseInt(id));
+  if(!prod){
+    res.send('product not exists')
+  }
+  for(let k in req.body){
+    prod[k] = req.body[k];
+  }
+
+  fs.writeFile(`${__dirname}/product.json`, JSON.stringify(data), (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
+
+  res.send(data);
+});
 
 
 
