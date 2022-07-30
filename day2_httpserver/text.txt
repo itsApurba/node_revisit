@@ -1,0 +1,25 @@
+Event Loop?
+  its a way in which Js execute non I/O blocking operation.
+
+
+
+
+Js->single threaded
+V8->asynchronus --> Js -> asynchronus
+
+process.nextTick();
+
+
+hardware address: MAC
+software address: IP
+
+  -v4
+  -v6
+
+33,332 ports
+
+CORS: cross origin domain request
+     cross origin resourse sharing
+
+
+
