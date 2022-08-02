@@ -18,3 +18,13 @@ app.get('/', (req, res) => {
 app.listen(8080, () => {
   console.log('express server started on port 8080');
 });
+
+
+
+// const level = require('level');
+// const sublevel = require('level-sublevel');
+
+// const db = level('./db', {valueEncoding: 'json'});
+
+
+

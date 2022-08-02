@@ -85,21 +85,21 @@ const fs = require('fs');
 
 // console.log(process.argv);
 
-// let fun = process.argv[2];
-// let arg1 = +process.argv[3];
-// let arg2 = +process.argv[4];
+let fun = process.argv[2];
+let arg1 = +process.argv[3];
+let arg2 = +process.argv[4];
 
-// const add = (a, b) => a + b;
-// const sub = (a, b) => Math.abs(a - b);
+const add = (a, b) => a + b;
+const sub = (a, b) => Math.abs(a - b);
 
 
-// if (fun == 'add') {
-//   let res = add(arg1, arg2);
-//   console.log('res: ', res);
-// } else if (fun == 'sub') {
-//   let res = sub(arg1, arg2);
-//   console.log('res: ', res);
-// }
+if (fun == 'add') {
+  let res = add(arg1, arg2);
+  console.log('res: ', res);
+} else if (fun == 'sub') {
+  let res = sub(arg1, arg2);
+  console.log('res: ', res);
+}
 
 
 

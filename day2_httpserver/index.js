@@ -6,14 +6,12 @@ const pageNotFound = fs.readFileSync(`${__dirname}/notfound.html`, {
 });
 const product = require('./product.json');
 
-
 // let dataout;
 
 // let content = fs.readFileSync(`${__dirname}/text.txt`, {encoding : 'utf-8'}, (err, data)=>{
 //      if(err) throw err
 //  })
 // console.log('content: ', content);
-
 
 // console.log('product: ', product);
 //create server
@@ -47,9 +45,8 @@ const product = require('./product.json');
 //   res.end();
 // });
 
-
 const server = http.createServer((req, res) => {
-  console.log('req: ', req.url);
+  // console.log('req: ', req.url);
   let message = 'Welcome to ';
   res.setHeader('content-type', 'text/html');
   switch (req.url) {
@@ -59,7 +56,7 @@ const server = http.createServer((req, res) => {
       break;
     }
     case '/product': {
-     res.setHeader('content-type', 'text/json');
+      res.setHeader('content-type', 'text/json');
       message += 'Product Page';
       res.write(`<h1>${message}</h1>`);
       product.posts.forEach((e) => {
@@ -69,6 +66,16 @@ const server = http.createServer((req, res) => {
                <li>${e.author}</li>
           </ul>`
         );
+      });
+      break;
+    }
+    case '/test': {
+      res.write(__dirname);
+      fs.readdir('../day2_httpserver', (err, files) => {
+        files.forEach((file) => {
+          console.log('file: ', file);
+          res.write(file);
+        });
       });
       break;
     }
@@ -97,9 +104,6 @@ server.listen(8080, () => {
 
 //whenever the process.next gets empty, the immediate callback is executed
 
-
-
-
-console.time("t1");
-//operation
-console.timeEnd("t1");
+// console.time("t1");
+// //operation
+// console.timeEnd("t1");
