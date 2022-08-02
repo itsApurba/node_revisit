@@ -11,7 +11,8 @@ app.use(
     origin: ['http://localhost:3000', 'http://localhost:3001'],
   })
 );
-app.use(express.urlencoded({extended:true}))
+
+app.use(express.urlencoded({ extended: true }));
 
 const authMiddleware = (req, res, next) => {
   console.log('logger1');
@@ -42,20 +43,21 @@ const timerMiddlewarev = (req, res, next) => {
   next();
 };
 
-app.use('/', (req, res) => {
-
-     console.log(req.query);
-     res.send(req.query);
+app.use('/', authMiddleware, (req, res) => {
+ 
+  console.log(req.query);
+  res.send(req.query);
 });
 // app.use(authMiddleware);
 // app.use(loggerMiddleware);
 // app.use(timerMiddlewarev);
 
+
 // app.get('/', (req, res) => {
-//   setTimeout(() => {
-//     console.log('/ setTimeout');
-//     res.send('/route');
-//   }, 4000);
+// //   setTimeout(() => {
+// //     console.log('/ setTimeout');
+// //     res.send('/route');
+// //   }, 4000);
 // });
 
 const productMiddelware = require('./middleware/product.middleware');
@@ -65,5 +67,3 @@ app.use('/product', productMiddelware, prodController);
 app.listen(8080, () => {
   console.log('server started');
 });
-
-

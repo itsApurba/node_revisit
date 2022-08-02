@@ -11,6 +11,12 @@ app.use(express.json());
 const prodController = require('./controller/product.controller');
 app.use('/product', prodController);
 
+
+const userController = require('./controller/user.controller');
+// app.use('/user', userController);
+
+
+
 app.get('/', (req, res) => {
   res.send('hello from home route');
 });
