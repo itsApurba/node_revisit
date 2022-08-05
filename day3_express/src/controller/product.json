@@ -1,7 +1,1 @@
-[
-  { "id": 2, "name": "name2", "price": 300 },
-  { "id": 4, "name": "4th product", "price": 1000 },
-  { "id": 5, "name": "name5", "price": 200 },
-  { "id": 6, "name": "name6", "price": 300 },
-  { "id": 8, "name": "name8", "price": 900 }
-]
+[{"id":2,"name":"name2","price":300},{"id":4,"name":"4th product","price":1000},{"id":5,"name":"name5","price":200},{"id":6,"name":"name6","price":300},{"id":8,"name":"name8","price":900},{"id":2,"name":"name2","price":300}]

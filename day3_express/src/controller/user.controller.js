@@ -19,6 +19,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+
+  console.log('req.body: ', req.body);
   data.push(req.body);
   fs.write(`${__dirname}/user.json`, JSON.stringify(data), () => {
     if (err) throw err;

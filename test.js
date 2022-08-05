@@ -4,6 +4,23 @@
 // } else {
 //   let up = uperBound(n, arr, x);
 //   console.log(n - up);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // }
 const arr = [2, 2, 2, 3, 5, 5, 5, 7, 9]
 
