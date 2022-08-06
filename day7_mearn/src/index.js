@@ -6,9 +6,14 @@ app.use(express.json());
 
 // mongoose.connect('mongodb://127.0.0.1:27017/nem-101');
 
+//user
 const userController = require('./controller/user.controller');
 app.use('/user', userController);
 
+
+//product
+const productController = require('./controller/product.controller');
+app.use('/product', productController);
 
 
 const port = process.env.PORT || 5000;
