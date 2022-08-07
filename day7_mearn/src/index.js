@@ -11,12 +11,15 @@ const userController = require('./controller/user.controller');
 app.use('/user', userController);
 
 
+
 //product
 const productController = require('./controller/product.controller');
 app.use('/product', productController);
 
-
+//port 
 const port = process.env.PORT || 5000;
+
+//connect
 app.listen(port, async () => {
   try {
     await connect();
