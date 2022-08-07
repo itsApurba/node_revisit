@@ -17,7 +17,7 @@ productRoute.get('/:id', async (req, res) => {
     const product = await Product.findById(req.params.id).lean().exec();
     return res.send(product);
   } catch (e) {
-    return res.status(500).send(e);
+    return res.status(500).send(e.message);
   }
 });
 
@@ -26,7 +26,7 @@ productRoute.post('/', async (req, res) => {
     const product = await Product.create(req.body);
     return res.send('product created successfully');
   } catch (e) {
-    return res.status(500).send(e);
+    return res.status(500).send(e.message);
   }
 });
 
@@ -39,7 +39,7 @@ productRoute.patch('/:id', async (req, res) => {
       .exec();
     return res.send(product);
   } catch (e) {
-    return res.status(500).send();
+    return res.status(500).send(e.message);
   }
 });
 
@@ -48,7 +48,7 @@ productRoute.delete('/:id', async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     return res.send('user deleted successfully');
   } catch (e) {
-    return res.status(500).send(e);
+    return res.status(500).send(e.message);
   }
 });
 
