@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const app = express();
-const connect = require('./config/db');
+const connect = require('./src/config/db');
 const cors = require('cors');
 
 app.use(cors());
@@ -25,15 +25,15 @@ app.use('/', (req, res) => {
 });
 
 //user
-const userRoute = require('./routes/user.route');
+const userRoute = require('./src/routes/user.route');
 app.use('/user', userRoute);
 
 //product
-const productRoute = require('./routes/product.route');
+const productRoute = require('./src/routes/product.route');
 app.use('/product', productRoute);
 
 //todo
-const todoctRoute = require('./routes/todo.route');
+const todoctRoute = require('./src/routes/todo.route');
 app.use('/todo', todoctRoute);
 
 const port = process.env.PORT || 8000;
