@@ -5,13 +5,20 @@ const path = require('path');
 const app = express();
 
 //middleware
-// app.use(express.json());
-// app.use(compression());
-app.use(
-  cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
-  })
-);
+//JSON
+app.use(express.json());
+
+//CORS
+// app.use(
+//   cors({
+//     origin: ['http://localhost:3000', 'http://localhost:3001'],
+//   })
+// );
+app.use(cors());
+//cors- cross origin request sharing
+
+//COMPRESSOR
+app.use(compression());
 
 // app.use(express.urlencoded({ extended: true }));
 
@@ -94,7 +101,7 @@ app.get('/', (req, res) => {
 });
 
 //file upload
-
+//MULTER
 const multer = require('multer');
 
 const fileStorageEngine = multer.diskStorage({
@@ -108,19 +115,19 @@ const fileStorageEngine = multer.diskStorage({
 
 const upload = multer({ storage: fileStorageEngine });
 
-app.post('/single', upload.single('avatar'), function (req, res) {
+app.post('/single', upload.single('avatar'), (req, res) => {
   // req.file is the `avatar` file
-  console.log('req.file : ', req.file);
+  // console.log('req.file : ', req.file);
   // req.body will hold the text fields, if there were any
   res.send('file uploaded succesfully');
 });
-
+Object.keys({});
 app.post('/multiple', upload.array('avatars', 3), (req, res) => {
-  console.log('req.files : ', req.files);
+  // console.log('req.files : ', req.files);
 
   res.send('multiple files uploaded succesfully');
 });
-
-app.listen(8080, () => {
-  console.log('server started');
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`server started on PORT ${PORT}`);
 });

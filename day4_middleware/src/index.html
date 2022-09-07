@@ -8,15 +8,6 @@
     <!-- <script src="./index.js" defer></script> -->
   </head>
   <body>
-    <form
-      id="form"
-      action="/single"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <input type="file" name="avatar" />
-      <input type="submit" />
-    </form>
     <div>
       <h1>Wellcome to MEARN server</h1>
       <ul>
@@ -27,5 +18,61 @@
         <li></li>
       </ul>
     </div>
+    <div>
+      <h1>upload single</h1>
+      <form
+        id="form"
+        action="/single"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="file" name="avatar" />
+        <input type="submit" />
+      </form>
+    </div>
+    <div>
+      <h1>upload multiples</h1>
+      <form
+        id="form"
+        action="/multiple"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="file" name="avatars" multiple />
+        <input type="submit" />
+      </form>
+    </div>
+    <!-- <form
+      id="form"
+      action="/single"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="avatar" />
+      <input type="submit" />
+    </form> -->
   </body>
 </html>
+<!-- <script>
+  import axios from 'axios';
+
+  const fileSelector = document.getElementById('file-selector');
+  fileSelector.addEventListener('change', (event) => {
+    const fileList = event.target.files;
+    console.log(fileList);
+  });
+
+  document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const inputImage = document.getElementById('');
+
+    const data = new FormData();
+
+    data.append('image', inputImage);
+
+    axios.post('http://localhost:8080/single', data, {
+      headers: { 'content-type': 'multipart/form-data' },
+    });
+  });
+</script> -->
