@@ -9,6 +9,8 @@ const users = fs.readFileSync(`${__dirname}/user.json`, {
 data = JSON.parse(product);
 
 router.get('/', (req, res) => {
+  console.log(req.url);
+  console.log(req.body);
   res.send(data);
 });
 

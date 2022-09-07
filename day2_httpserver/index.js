@@ -15,7 +15,7 @@ const product = require('./product.json');
 
 // console.log('product: ', product);
 //create server
-// const server = http.createServer((req, res) => {
+// const server1 = http.createServer((req, res) => {
 //   console.log('req: ', req.url);
 //   let message = 'Welcome to ';
 //   // res.hasHeader("content-type", "text/html")
@@ -45,16 +45,28 @@ const product = require('./product.json');
 //   res.end();
 // });
 
+const homePage = fs.readFileSync(`${__dirname}/index.html`, {
+  encoding: 'utf-8',
+});
+// console.log('homePage: ', homePage);
+
 const server = http.createServer((req, res) => {
   // console.log('req: ', req.url);
   let message = 'Welcome to ';
-  res.setHeader('content-type', 'text/html');
+
   switch (req.url) {
     case '/': {
-      message += 'Home Page';
-      res.write(`<h1>${message}</h1>`);
+      console.time("t1")
+      res.setHeader('content-type', 'text/html');
+      res.write(homePage);
+      console.timeEnd("t1")
       break;
     }
+    case '/public': {
+      res.write('public route');
+      break;
+    }
+
     case '/product': {
       res.setHeader('content-type', 'text/json');
       message += 'Product Page';

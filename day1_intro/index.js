@@ -31,15 +31,12 @@ const fs = require('fs');
 // });
 // console.log('after');
 
-
-
 //keywords
 //exports
 //require
 //module
 //__direname
 //__filename
-
 
 //crypto hashing
 // const crypto = require('crypto');
@@ -52,7 +49,6 @@ const fs = require('fs');
 //password + SALT
 //one way direction
 
-
 // readline module to take input from user
 // const readline = require('readline');
 // const reader = readline.createInterface({
@@ -63,7 +59,6 @@ const fs = require('fs');
 //   console.log(`Hello ${name}`);
 //   reader.close();
 // });
-
 
 // npm install inquire
 // const inquirer = require('inquirer');
@@ -80,9 +75,6 @@ const fs = require('fs');
 //   console.log(`Hi ${answers.name}!`);
 // });
 
-
-
-
 // console.log(process.argv);
 
 let fun = process.argv[2];
@@ -92,7 +84,6 @@ let arg2 = +process.argv[4];
 const add = (a, b) => a + b;
 const sub = (a, b) => Math.abs(a - b);
 
-
 if (fun == 'add') {
   let res = add(arg1, arg2);
   console.log('res: ', res);
@@ -101,19 +92,14 @@ if (fun == 'add') {
   console.log('res: ', res);
 }
 
-
-
-
 // Random Number by crypto
 // const crypto = require('crypto');
 
 // const inputstr = process.argv[2];
 // if (inputstr == 'random') {
 //   const n = crypto.randomInt(11);
-//   console.log(`Random number chosen from (0, 1, 2): ${n}`);
+//   console.log(`Random number is: ${n}`);
 // }
-
-
 
 // With `min` argument
 // const { randomInt } = require('crypto');
@@ -121,44 +107,35 @@ if (fun == 'add') {
 // const n = randomInt(1, 7);
 // console.log(`The dice rolled: ${n}`);
 
-
-
-
-
 // fs.open('test.txt', 'w', function (err, file) {
 //      if (err) throw err;
 //      console.log('Saved!');
 // });// create
 
-
 // const content = fs.readFile('./test.txt', { encoding: 'utf-8' }, (err, data) => {
 //      console.log('data: ', data);
 // }); //read
-
 
 // fs.writeFileSync("./new.txt", "random text");// to write
 // fs.appendFileSync('./test.txt', 'data to append');// append
 
 // fs.unlinkSync("./new.txt"); // to remove
 
-
 // fs.rename('./test.txt', './newtest.txt', (err) => {
 //   if (err) throw err;
 //   console.log('Rename complete!');
 // });//rename
 
+fs.readdir('../day1_intro', (err, files) => {
+  files.forEach((file) => {
+    console.log(file);
+  });
+});
 
-// fs.readdir("../day1_intro", (err, files) => {
-//      files.forEach(file => {
-//           console.log(file);
-//      });
-// });
-
-
-// fs.readdirSync(directory).forEach(file => {
-//      if (fs.lstatSync(path.resolve(directory, file)).isDirectory()) {
-//           console.log('Directory: ' + file);
-//      } else {
-//           console.log('File: ' + file);
-//      }
+// fs.readdirSync(directory).forEach((file) => {
+//   if (fs.lstatSync(path.resolve(directory, file)).isDirectory()) {
+//     console.log('Directory: ' + file);
+//   } else {
+//     console.log('File: ' + file);
+//   }
 // });
